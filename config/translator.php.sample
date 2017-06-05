@@ -1,0 +1,21 @@
+<?php
+
+return [
+    'MESSAGE' => [
+        'APPID' => 'INFOCENTER.PUSH.MESSAGE.TEST',
+        'KEY_LIST' => [
+            'MESSAGE_TITLTE',
+            'MESSAGE_DESCRIPTION',
+            'MESSAGE_CALL_TO_ACTION',
+        ],
+    ], 
+    'ARTICLE' => [
+        'APPID' => 'INFOCENTER.CONTENT.ARITCLE.TEST',
+        'KEY_LIST' => [
+            'ARTICLE_TITLTE',
+            'ARTICLE_CONTENT',
+            'ARTICLE_AUTHOR',
+            'ARTICLE_EDITOR',
+        ],
+    ],
+];

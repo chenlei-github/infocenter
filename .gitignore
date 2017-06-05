@@ -1,0 +1,48 @@
+# for MacOS X
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# for python
+__pycache__/
+*.py[cod]
+
+
+# for php
+
+# common
+log/*
+temp/*
+*.log
+config.sh
+config.py
+config.php
+config.ini
+.idea/
+
+
+# for ctags
+.tags
+.tags_sorted_by_file
+
+# for sublime
+
+*.sublime-project
+*.sublime-workspace
+sftp-config.json
+.phpintel/
+
+# for vscode
+.vscode/
+
+
+composer.lock
+/vendor/
+/node_modules
+# .env
+# /back/vendor/
+# /back/storage/
+
+# for test
+inc/smarty/templates_c/
+

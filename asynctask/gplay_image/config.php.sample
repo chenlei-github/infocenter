@@ -1,0 +1,9 @@
+<?php
+
+
+$configs =[
+	'inputfile' => '/var/www/infocenter/runtime/asynctask/gplay_image/input.json',
+	'outputfile' => '/var/www/infocenter/runtime/asynctask/gplay_image/output.json',
+];
+
+return $configs;

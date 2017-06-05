@@ -1,0 +1,10 @@
+<?php
+
+$mail_list = [
+	'aso_keywords' => [
+		'who@amberweather.com',
+		'who2@amberweather.com',
+	],
+];
+
+return $mail_list;

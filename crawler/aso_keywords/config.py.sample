@@ -1,0 +1,38 @@
+#! /usr/bin/env python2
+# -*- coding:utf-8 -*-
+
+task_list = {
+    'website_base_url': 'https://1310.amberweather.com/',
+    'website_dir': '/var/www/infocenter/1310.amberweather.com/aso_keywords/',
+    'input_file': 'input.txt',
+}
+
+proxy_list = [
+    '',
+    'http://172.31.6.22:8118',
+    'http://172.31.17.241:8118',
+    'http://172.31.6.22:8118',
+    'http://172.31.18.132:8118',
+    'http://172.31.22.215:8118',
+    'http://172.31.16.212:8118',
+    'http://172.31.16.211:8118',
+    'http://172.31.31.95:8118',
+    'http://172.31.31.96:8118',
+    'http://172.31.31.187:8118'
+]
+
+suffix_method_proxy_list = None
+iteration_method_proxy_list = None
+
+# GooglePlay config
+# separator used by search.py, categories.py, ...
+SEPARATOR = ";"
+LANG = "en_US"  # can be en_US, fr_FR, ...
+ANDROID_ID = ""  # "xxxxxxxxxxxxxxxx"
+GOOGLE_LOGIN = ""  # "username@gmail.com"
+GOOGLE_PASSWORD = ""
+AUTH_TOKEN = None  # "yyyyyyyyy"
+
+# force the user to edit this file
+if any([not each for each in [ANDROID_ID, GOOGLE_LOGIN, GOOGLE_PASSWORD]]):
+    raise Exception("config.py not updated")

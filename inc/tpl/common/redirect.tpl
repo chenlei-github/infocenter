@@ -1,0 +1,1 @@
+<html><head><title>Redirecting...</title><meta content="0; url={$url}" http-equiv="refresh"/></head><body><script language="javascript" type="text/javascript">location.replace("{$url}")</script></body></html>

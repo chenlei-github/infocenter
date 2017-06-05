@@ -1,0 +1,11 @@
+<?php
+
+
+$aws_config=[
+    'region'   => 'ap-northeast-1', // US West (Oregon) Region
+    'version'  => 'latest'  ,// Use the latest version of the AWS SDK for PHP
+    'credentials' => [
+    'key'    => 'key',
+    'secret' => 'secret'
+    ]
+    ];

@@ -1,0 +1,28 @@
+<?php
+
+$config = [
+
+    'keyword_config' =>[
+        'AllType' => ['weather', 'locker', 'weather_en'],
+        'AllLang' => ['en', 'fr'],
+        'AllCountry' => ['en', 'fr'],
+        'dir' => [
+            "keyword_txt" => "/tmp/keyword_txt",
+            "out_sql_data" => '/tmp/out_sql_data',
+        ],
+    ],
+
+    'app_review_desc' =>[
+        'review_num' => 100,
+        'show_out_num' => 6,
+        'dir' => [
+            "app_list" => "/var/www/infocenter/runtime/asynctask/review_desc/",
+            "out_data" => '/var/www/infocenter/1310.amberweather.com/downloads/review_desc_data/',
+        ],
+    ],
+
+
+];
+
+
+return $config;

@@ -1,0 +1,37 @@
+@country US
+@lang en
+# suffix, iter
+@keywords_method iteration
+# True,False
+@do_top_downloads True
+@suffix_1st_list
+@suffix_2nd_list a,b,c
+@suffix_3rd_list
+@level 1
+@reversed rue
+@task_name test_task_name
+@maillist louxiao@amberweather.com
+
+task_a
+task_b
+task_x
+task_y
+task_z
+@--
+
+
+@country
+@lang de
+# suffix, iter
+@keywords_method iteration
+# True,False
+@do_top_downloads True
+@suffix_1st_list
+@suffix_2nd_list x,y,z
+@suffix_3rd_list
+@level 1
+@reversed rue
+@task_name de_task
+@maillist louxiao@amberweather.com
+task_c
+task_d

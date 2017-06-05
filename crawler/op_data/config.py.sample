@@ -1,0 +1,353 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+mysql_config = {
+    'host': '127.0.0.1',
+    'user': '0000',
+    'passwd': '0000',
+    'dbname': '0000'
+}
+
+# ==========
+# debug_mode,开启调试模式
+
+debug_mode = False
+
+# ============
+# admob,
+# google adsense config
+
+adsense_config = {
+    "CLIENT_ID": "0000.apps.googleusercontent.com",
+    "CLIENT_SECRET": '0000',
+    "REFRESH_TOKEN": "0000"
+}
+
+admob_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'admob_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'admob_statics.log'
+}
+
+admob_sum_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'admob_sum_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'admob_sum_statics.log'
+}
+
+admob_appid_list = {
+    "default": {
+        "CLIENT_ID": "000",
+        "CLIENT_SECRET": '0000',
+        "REFRESH_TOKEN": "1/000"
+    }
+}
+
+admob_task_list = {
+    "revenue": {
+        "table_name": "revenue_app",
+        "field_list": ["revenue"],
+        "unique_key": [],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "x.log",
+        "statics_log_file": "xx.log",
+        "clean_sql_file": False  # for debug
+    },
+    "all": {
+        "table_name": "ad_admob",
+        "field_list": ["revenue", "request", "filled", "impression", "click", "country", "placement"],
+        "unique_key": ["country", "placement"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "x.log",
+        "statics_log_file": "xx.log",
+        "clean_sql_file": False  # for debug
+    },
+
+    "country": {
+        "table_name": "ad_admob_country",
+        "field_list": ["revenue", "request", "filled", "impression", "click", "country"],
+        "unique_key": ["country"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "x.log",
+        "statics_log_file": "xx.log",
+        "clean_sql_file": False  # for debug
+    },
+    "placement": {
+        "table_name": "ad_admob_placement",
+        "field_list": ["revenue", "request", "filled", "impression", "click", "placement"],
+        "unique_key": ["placement"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "x.log",
+        "statics_log_file": "xx.log",
+        "clean_sql_file": False  # for debug
+    },
+
+}
+
+# ===========
+# FACEBOOK ADS
+# facebook config
+
+facebook_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'facebook_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'facebook_statics.log'
+}
+
+facebook_sum_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'facebook_sum_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'facebook_sum_statics.log'
+}
+
+#  total ["revenue", "request", "filled", "impression", "click", "country", "placement"]
+facebook_task_list = {
+    "revenue": {
+        "table_name": "revenue_app",
+        "field_list": ["revenue"],
+        "unique_key": ["revenue"],
+        "split_task": False,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "facebook_revenue.log",
+        "statics_log_file": "facebook_revenue_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "country": {
+        "table_name": "ad_facebook_country",
+        "field_list": ["country", "revenue", "request", "filled", "impression", "click"],
+        "unique_key": ["country", "revenue", "request", "filled", "impression", "click"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 7,  # 每个分组的大小，单位:天
+        "detail_log_file": "facebook_country.log",
+        "statics_log_file": "facebook_country_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "placement": {
+        "table_name": "ad_facebook_placement",
+        "field_list": ["placement", "revenue", "request", "filled", "impression", "click"],
+        "unique_key": ["placement", "revenue", "request", "filled", "impression", "click"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 7,  # 每个分组的大小，单位:天
+        "detail_log_file": "facebook_placement.log",
+        "statics_log_file": "facebook_placement_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "all": {
+        "table_name": "ad_facebook",
+        "field_list": ["revenue", "request", "filled", "impression", "click", "country", "placement"],
+        "unique_key": ["country", "placement", "revenue", "request", "filled", "impression", "click"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 7,  # 每个分组的大小，单位:天
+        "detail_log_file": "facebook_all.log",
+        "statics_log_file": "facebook_all_statics.log",
+        "clean_sql_file": False  # for debug
+    }
+}
+
+facebook_appid_config = {
+    'weather_widget': {
+        'appid': '00000',
+        'secret': '0000'
+    },
+    'amber_weather': {
+        'appid': '0000',
+        'secret': '0000'
+    },
+    "weather_lite": {
+        'appid': '0000',
+        'secret': '0000'
+    },
+    "weather_inside": {
+        'appid': '0000',
+        'secret': '0000'
+    },
+    # 'rainbow_note': {
+    #     'appid': '0000',
+    #     'secret': '0000'
+    # }
+}
+
+# 矫正facebook 时区到utc时区
+facebook_graph_time_delt = 0
+
+#  ================
+# google play inapp purchase
+
+googleplay_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'googleplay_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'googleplay_statics.log'
+}
+
+googleplay_task = {
+    "clean_sql_file": False,
+    "table_name": "revenue_app",
+    "field_list": ["placement", "revenue", "request", "filled", "impression", "click"],
+    "unique_key": ["placement", "revenue", "request", "filled", "impression", "click"],
+}
+
+
+# ================
+#  pingstart
+
+pingstart_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'pingstart_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'pingstart_statics.log'
+}
+
+pingstart_appid_config = {
+    'weather_widget': {
+        'Cookie': "1045.0000",
+        "ssl_crt": "gd_bundle-g2-g1.crt",  # 证书的路径名
+    }
+}
+
+pingstart_task_list = {
+    "date": {
+        "table_name": "ad_pingstart_revenue",
+        "field_list": ["revenue", "request", "filled", "impression", "click", "filled_rate", "ctr", "ecpm"],
+        "unique_key": ["revenue", "request", "filled", "impression", "click", "filled_rate", "ctr", "ecpm"],
+        "date_or_country": "date",
+        "slot": [""],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "pingstart_all.log",
+        "statics_log_file": "pingstart_all_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "country": {
+        "table_name": "ad_pingstart_country",
+        "field_list": ["country", "revenue", "request", "filled", "impression", "click", "filled_rate", "ctr", "ecpm"],
+        "unique_key": ["country", "revenue", "request", "filled", "impression", "click", "filled_rate", "ctr", "ecpm"],
+        "date_or_country": "country",
+        "slot": [""],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "pingstart_country.log",
+        "statics_log_file": "pingstart_country_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "placement": {
+        "table_name": "ad_pingstart_placement",
+        "field_list": ["placement", "revenue", "request", "filled", "impression", "click", "filled_rate", "ctr",
+                       "ecpm"],
+        "unique_key": ["placement", "revenue", "request", "filled", "impression", "click", "filled_rate", "ctr",
+                       "ecpm"],
+        "date_or_country": "slot",
+        "slot": [""],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "pingstart_placement.log",
+        "statics_log_file": "pingstart_placement_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+
+}
+
+# ================
+#  baidu
+
+
+baidu_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'baidu_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'baidu_statics.log'
+}
+
+baidu_appid_config = {
+    "amber_weather": {
+        "username": "0000",
+        "appid": "0000",
+        "source": "all"  # dap,facebook,all
+    }
+}
+
+baidu_task_list = {
+    "all": {
+        "table_name": "ad_baidu",
+        "field_list": ["revenue", "request", "filled", "impression", "click", "country", "placement"],
+        "unique_key": ["country", "placement", "revenue", "request", "filled", "impression", "click"],
+        # "split_task": True,  # 任务是否分组请求
+        # "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "baidu_all.log",
+        "statics_log_file": "baidu_all_statics.log",
+        "clean_sql_file": False  # for debug
+    }
+}
+
+# ================
+#  update_revenue
+
+
+update_revenue_logging = {
+    # 运行详情日志，每天轮转一次
+    'detail_log_file': 'update_revenue_logging.log',
+    # 每一运行的统计文件，不会轮转
+    'statics_log_file': 'update_revenue_statics.log'
+}
+
+# ==========
+# mobvista
+mobvista_appid_config = {
+    "default": {
+        'skey': '0000',
+        'secret': '0000',
+    }
+}
+
+mobvista_task_list = {
+    "revenue": {
+        "table_name": "revenue_app",
+        "field_list": ["revenue"],
+        "unique_key": ["revenue"],
+        "split_task": False,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "mobvista_revenue.log",
+        "statics_log_file": "mobvista_revenue_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "all": {
+        "table_name": "ad_mobvista",
+        "field_list": ["date", "revenue", "request", "filled", "impression", "click", "country", "placement",
+                       "filled_rate"],
+        "unique_key": ["date", "revenue", "request", "filled", "impression", "click", "country", "placement",
+                       "filled_rate"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "mobvista_all.log",
+        "statics_log_file": "mobvista_all_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "country": {
+        "table_name": "ad_mobvista_country",
+        "field_list": ["date", "country", "revenue", "request", "filled", "impression", "click", "filled_rate"],
+        "unique_key": ["date", "country", "revenue", "request", "filled", "impression", "click", "filled_rate"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "mobvista_country.log",
+        "statics_log_file": "mobvista_country_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+    "placement": {
+        "table_name": "ad_mobvista_placement",
+        "field_list": ["date", "placement", "revenue", "request", "filled", "impression", "click", "filled_rate"],
+        "unique_key": ["date", "placement", "revenue", "request", "filled", "impression", "click", "filled_rate"],
+        "split_task": True,  # 任务是否分组请求
+        "size_per_split": 1,  # 每个分组的大小，单位:天
+        "detail_log_file": "mobvista_placement.log",
+        "statics_log_file": "mobvista_placement_statics.log",
+        "clean_sql_file": False  # for debug
+    },
+}

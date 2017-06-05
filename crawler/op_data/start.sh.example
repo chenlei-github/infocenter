@@ -1,0 +1,25 @@
+#!/bin/sh
+
+
+
+cd ~
+
+python admob_main.py --task country   7  >/dev/null 2>&1
+python admob_main.py --task placement 7  >/dev/null 2>&1
+python admob_main.py --task all       7  >/dev/null 2>&1
+python admob_main.py --task revenue   7  >/dev/null 2>&1
+
+python baidu_main.py --task all 7    >/dev/null 2>&1
+
+python facebook_main.py --task country    7  >/dev/null 2>&1
+python facebook_main.py --task placement  7  >/dev/null 2>&1
+python facebook_main.py --task all        7  >/dev/null 2>&1
+python facebook_main.py --task revenue    7  >/dev/null 2>&1
+
+python pingstart_main.py --task country   7  >/dev/null 2>&1
+python pingstart_main.py --task placement   7  >/dev/null 2>&1
+
+python update_revenue.py
+
+
+

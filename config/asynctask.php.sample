@@ -1,0 +1,51 @@
+<?php
+
+$asynctask = [
+    'aso_keywords' => [
+        'cmd' => 'python2 /var/www/infocenter/crawler/aso_keywords/main.py',
+        'pidfile' => '/var/www/infocenter/1310.amberweather.com/aso_keywords/pid.txt',
+        'outputfile' => '/var/www/infocenter/1310.amberweather.com/aso_keywords/out.log',
+        'inputfile' => '/var/www/infocenter/1310.amberweather.com/aso_keywords/input.txt',
+        'tail_recent_number' => 100,
+        'website_baseurl' => '/aso_keywords/',
+        'website_dir' => '/var/www/infocenter/1310.amberweather.com/aso_keywords/',
+    ],
+
+    'gplay_text' => [
+        'cmd' => 'php /var/www/infocenter/asynctask/gplay_text/main.php',
+        'pidfile' => '/var/www/infocenter/runtime/asynctask/gplay_text/pid.txt',
+        'outputfile' => '/var/www/infocenter/runtime/asynctask/gplay_text/out.log',
+        'inputfile' => '/var/www/infocenter/runtime/asynctask/gplay_text/input.json',
+        'resultfile' => '/var/www/infocenter/runtime/asynctask/gplay_text/output.json',
+        'tail_recent_number' => 100,
+    ],
+
+    'gplay_image' => [
+        'cmd' => 'php /var/www/infocenter/asynctask/gplay_image/main.php',
+        'pidfile' => '/var/www/infocenter/runtime/asynctask/gplay_image/pid.txt',
+        'outputfile' => '/var/www/infocenter/runtime/asynctask/gplay_image/out.log',
+        'inputfile' => '/var/www/infocenter/runtime/asynctask/gplay_image/input.json',
+        'resultfile' => '/var/www/infocenter/runtime/asynctask/gplay_image/output.json',
+        'tail_recent_number' => 100,
+    ],
+
+    'gdeveloper_rank' => [
+        'cmd' => '/usr/bin/python /var/www/infocenter/crawler/aso_developer_rank/main.py',
+        'pidfile' => '/var/www/infocenter/runtime/asynctask/gdeveloper_rank/pid.txt',
+        'outputfile' => '/var/www/infocenter/runtime/asynctask/gdeveloper_rank/out.log',
+        'inputfile' => '/var/www/infocenter/runtime/asynctask/gdeveloper_rank/input.json',
+        'resultfile' => '/var/www/infocenter/runtime/asynctask/gdeveloper_rank/output.json',
+        'tail_recent_number' => 100,
+    ],
+
+    'app_review_desc' => [
+        'cmd' => '/usr/bin/python /var/www/infocenter/crawler/review_desc/main.py',
+        'pidfile' => '/var/www/infocenter/runtime/asynctask/review_desc/pid.txt',
+        'outputfile' => '/var/www/infocenter/runtime/asynctask/review_desc/out.log',
+        'inputfile' => '/var/www/infocenter/runtime/asynctask/review_desc/input.json',
+        'resultfile' => '/var/www/infocenter/runtime/asynctask/review_desc/output.json',
+        'tail_recent_number' => 100,
+    ],
+
+];
+return $asynctask;

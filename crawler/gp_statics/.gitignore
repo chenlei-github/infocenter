@@ -1,0 +1,60 @@
+# for MacOS X
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# for python
+__pycache__/
+*.py[cod]
+
+
+# for php
+
+# common
+log/*
+temp/*
+*.log
+config.py
+config.php
+.idea/
+
+
+# for ctags
+.tags
+.tags_sorted_by_file
+
+# for sublime
+
+*.sublime-project
+*.sublime-workspace
+sftp-config.json
+.phpintel/
+
+
+
+composer.lock
+/vendor/
+/node_modules
+# .env
+# /back/vendor/
+# /back/storage/
+
+# for test
+inc/smarty/templates_c/
+
+
+test.py
+a.json
+b.json
+c.json
+louxiao-debug-3d2fe4152b97.p12
+*.csv
+*.xls
+*.pyc
+memo/
+t.py
+t.json
+*.json
+x.txt
+
+*.online

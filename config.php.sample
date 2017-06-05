@@ -1,0 +1,106 @@
+<?php
+
+$configs = [
+    'INFOCENTER_DB_USER' => "infocenter",
+    'INFOCENTER_DB_NAME' => "infocenter",
+    'INFOCENTER_DB_HOST' => '127.0.0.1',
+    'INFOCENTER_DB_PASS' => 'infocenter',
+    'INFOCENTER_DB_PORT' => '3306',
+
+    'OPDATA_DB_USER' => 'opdata',
+    'OPDATA_DB_NAME' => 'opdata',
+    'OPDATA_DB_HOST' => '127.0.0.1',
+    'OPDATA_DB_PORT' => '3306',
+    'OPDATA_DB_PASS' => 'opdata',
+
+    'STORE_DB_USER' => 'store',
+    'STORE_DB_NAME' => 'store',
+    'STORE_DB_HOST' => '127.0.0.1',
+    'STORE_DB_PORT' => '3306',
+    'STORE_DB_PASS' => 'store',
+
+    'PUSH_STORE_STATICS_DB_USER' => '',
+    'PUSH_STORE_STATICS_DB_NAME' => 'push_store_statics',
+    'PUSH_STORE_STATICS_DB_HOST' => '127.0.0.1',
+    'PUSH_STORE_STATICS_DB_PORT' => '3306',
+    'PUSH_STORE_STATICS_DB_PASS' => '',
+
+    'Tcache_enable_fstore'=> false,
+    'Tcache_cfg_fstore' => [
+            'driver'     => 'apc',
+            'mem_host'   => 'localhost',
+            'mem_port'   => 11211,
+            'expire'     => 3600,
+            'p_timeout'  => 2,        //for future
+            'isCompress' => 0
+    ],
+
+    'GOOGLE_OAUTH_CLIENT_ID' => '',
+    'GOOGLE_OAUTH_CLIENT_SECRET' => '',
+
+    'DEBUG' => false,
+    'TEST' => false,
+
+    'S3_BUCKET'  => '',
+    'S3_KEY' => '',
+    'S3_SECRET' => '',
+    'S3_UPLOAD_DIR' => 'upload/files',
+
+    'message_image_size' => [
+            'L' => [240,108],
+            'M' => [320,144],
+            'H' => [480,216],
+            'XH' => [720,288],
+            'XXH' => [1080,432],
+            'XXXH' => [1440,576]
+    ],
+
+    'app_list' => [
+        '10001' => [
+            'appid' => '10001',
+            'appname' => 'Amberweather Android',
+            'package_name' =>'mobi.infolife.ezweather'
+        ],
+        '20001' => [
+            'appid' => '20001',
+            'appname' => 'Amberweather iOS',
+            'package_name' =>'com.amberweather.app'
+        ],
+        '11001' => [
+            'appid' => '11001',
+            'appname' => 'mul Widget',
+            'package_name' =>'com.amberweather.widget'
+        ],
+        '13001' => [
+            'appid' => '13001',
+            'appname' => 'Amberweather Widget',
+            'package_name' =>'com.amberweather.app'
+        ],
+        '12001' => [
+            'appid' => '12001',
+            'appname' => 'leago Widget',
+            'package_name' =>'com.amberweather.app'
+        ],
+    ],
+    'google_play_account' => [
+        'Clock & Weather Theme Dev' => [
+            'credentials' => '/var/www/gpkey/storeeditor-Clock-&-Weather-Theme-Dev-7d58c503fd24.json'
+        ],
+        'Amber Widgets Dev Team' => [
+            'credentials' => '/var/www/gpkey/storeeditor-HD-Widgets-Dev-Team-6ac1777a32c8.json'
+        ],
+        'Amber Utils Dev Team' => [
+            'credentials' => '/var/www/gpkey/storeeditor-Smart-Utils-Dev-Team-34c15e9ff3ad.json'
+        ],
+        'Weather Widget Theme Dev Team' => [
+            'credentials' => '/var/www/gpkey/storeeditor-Weather-Widget-Theme-Dev-Team-5647b1aae1c4.json'
+        ],
+    ],
+
+    'log_path' => '/var/log/infocenter/base.log',
+
+];
+
+
+
+return $configs;

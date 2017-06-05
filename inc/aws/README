@@ -1,0 +1,4 @@
+To get started, you must download the zip file, unzip it into your project to a location of your choosing,
+and include the autoloader:
+
+require '/path/to/aws-autoloader.php';

@@ -1,0 +1,22 @@
+<?php
+
+$theme = [
+    'types' => [
+        "0" => "Widgets",
+        "1" => "Icon Sets",
+        "2" => "Weather Data Source",
+        "3" => "App Themes",
+        "4" => "Notification Theme",
+        "5" => "Live Wallpaper",
+        "6" => "Wallpaper",
+        "7" => "Locker (old)",
+        "8" => "App Promotion",
+        "9" => "What's New",
+        "10" => "iOS Widget",
+        "20" => "Locker (new)",
+        "21" => "Background",
+    ],
+];
+
+return $theme;
+

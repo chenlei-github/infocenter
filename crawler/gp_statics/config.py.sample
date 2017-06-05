@@ -1,0 +1,82 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+
+
+debug_mode = True
+
+mysql_config = {
+    'host': '127.0.0.1',
+    'user': '0000',
+    'passwd': '0000',
+    'dbname': '0000'
+}
+
+google_play_statics_auth_list = {
+    "account_a": {
+        "account": "0000",
+        "dev_acc": "0000",
+        "xsrf": "00:00",
+        "x_client_data": "00+00",
+        "cookie": {
+            "_ga": "GA1.3-3.00.00",
+            "NID": "0000",
+            "SID": "0000.",
+            "HSID": "0000",
+            "SSID": "0000",
+            "APISID": "00/00",
+            "SAPISID": "49-00/00"
+        }
+    }
+}
+
+google_play_default_task = {
+    "clean_sql_file": False,
+    # "proxies": {
+    #     'https': 'http://127.0.0.1:8118',
+    #     'http': 'http://127.0.0.1:8118',
+    # },
+    "proxies": None,
+    "statics_log_file": "gp_statics.log",
+    "detail_log_file": "gp_main.log"
+}
+
+google_play_task_list = {
+    'inner': {
+        "table_name": "gp_statics",
+        "field_list": ["date", "package", "c1", "c2", "views", "installed"],
+        "update_list": ["date", "package", "c1", "c2", "views", "installed"],
+    },
+    'outer': {
+        "table_name": "gp_statics",
+        "field_list": ["date", "package", "c1", "c2", "views", "installed"],
+        "update_list": ["date", "package", "c1", "c2", "views", "installed"],
+    },
+    'country': {
+        "table_name": "gp_statics_country",
+        "field_list": ["date", "package", "cc", 'country', "views", "installed"],
+        "update_list": ["date", "package", "cc", 'country', "views", "installed"],
+    },
+    'organic': {
+        "table_name": "gp_statics_organic",
+        "field_list": ["date", "package", "cc", 'country', "views", "installed"],
+        "update_list": ["date", "package", "cc", 'country', "views", "installed"],
+    },
+    'conversion': {
+        "table_name": "gp_statics_conversion",
+        "field_list": ["date", "duration", "package", "cc", 'country', "p25", "p50", "p75"],
+        "update_list": ["date", "duration", "package", "cc", 'country', "p25", "p50", "p75"],
+    },
+    'conversion_week': {
+        "table_name": "gp_statics_conversion",
+        "time_step": 7,
+        "field_list": ["date", "duration", "package", "cc", 'country', "p25", "p50", "p75"],
+        "update_list": ["date", "duration", "package", "cc", 'country', "p25", "p50", "p75"],
+    },
+    'conversion_month': {
+        "table_name": "gp_statics_conversion",
+        'time_step': 30,
+        "field_list": ["date", "duration", "package", "cc", 'country', "p25", "p50", "p75"],
+        "update_list": ["date", "duration", "package", "cc", 'country', "p25", "p50", "p75"],
+    }
+}
